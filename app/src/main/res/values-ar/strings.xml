@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[مرحبًا بك في Eightie!]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[جرب حظك مع لقاءات عشوائية ومفاجآت ممتعة.]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[مرحبًا!]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[هل أنت مستعد لـ\nلقاءات ممتعة؟]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[وجد الآلاف تواصلات حقيقية هنا. كن التالي!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[أنا مستعد!]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[نحن على وشك أن نفقد بعضنا! لديك %s أيام لاستعادة هذا الملف الشخصي.]]></string>
+</resources>

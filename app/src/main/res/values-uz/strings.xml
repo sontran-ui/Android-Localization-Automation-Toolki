@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[Eightie’ga xush kelibsiz!]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[Tasodifiy uchrashuvlar va hayajonli kutilmagan hodisalarni sinab ko‘r.]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[Salom!]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[Hayajonli\nUchrashuvlarga tayyormisan?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[Minglab odamlar bu yerda haqiqiy aloqalarni topishdi. Keyingisi sen bo‘l!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[Tayyorman!]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[Biz bir-birimizni yo‘qotayapmiz! Bu profilni tiklash uchun %s kun bor.]]></string>
+</resources>

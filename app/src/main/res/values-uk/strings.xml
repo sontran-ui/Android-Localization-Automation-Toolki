@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[Ласкаво просимо до Eightie!]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[Спробуй випадкові зустрічі та приємні сюрпризи.]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[Привіт!]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[Готовий до\nЗахопливих зустрічей?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[Тисячі людей знайшли тут справжні зв’язки. Будь наступним!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[Я готовий!]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[Ми ось-ось втратимо одне одного! У тебе є %s днів, щоб відновити цей профіль.]]></string>
+</resources>

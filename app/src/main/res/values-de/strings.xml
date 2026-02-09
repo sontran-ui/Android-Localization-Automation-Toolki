@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[Willkommen bei Eightie!]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[Wage dich an zufällige Begegnungen und spannende Überraschungen.]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[Hallo!]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[Bereit für\nSpannende Begegnungen?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[Tausende haben hier echte Verbindungen gefunden. Sei der Nächste!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[Ich bin bereit!]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[Wir stehen kurz davor, uns zu verlieren! Du hast %s Tage, um dieses Profil wiederherzustellen.]]></string>
+</resources>

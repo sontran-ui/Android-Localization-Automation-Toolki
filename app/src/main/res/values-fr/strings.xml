@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[Bienvenue sur Eightie !]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[Tente des rencontres aléatoires et des surprises excitantes.]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[Salut !]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[Prêt pour des\nRencontres Passionnantes ?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[Des milliers de personnes ont trouvé de vraies connexions ici. Sois le prochain !]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[Je suis prêt !]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[On est sur le point de se perdre ! Il te reste %s jours pour restaurer ce profil.]]></string>
+</resources>

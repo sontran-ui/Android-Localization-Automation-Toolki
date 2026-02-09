@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[Chào mừng bạn đến với Eightie]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[Thử vận may với những cuộc gặp gỡ hoàn toàn 
+ngẫu nhiên đầy bất ngờ]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[Xin chào]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[Sẵn Sàng Cho Những\nCuộc Gặp Gỡ Đáng Giá?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[Hàng ngàn người đã tìm thấy những người bạn tri kỷ tại đây. Hãy là người tiếp theo!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[Mình sẵn sàng]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[Sắp mất nhau thật rồi! Bạn có %s ngày để khôi phục lại tài khoản cực chất này đó.]]></string>
+</resources>

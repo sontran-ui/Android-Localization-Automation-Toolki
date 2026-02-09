@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">testtoolstring</string>
+    <string name="onboarding_intro_title_one"><![CDATA[Welcome to Eightie!]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[Take a chance with random encounters and exciting surprises.]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[Hello!]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[Ready for\nExciting Encounters?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[Thousands of people have found their soulmates here|. Be the next one!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[I\'m ready!]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[We\'re about to lose each other! You have %s days to restore this amazing profile.]]></string>
+</resources>

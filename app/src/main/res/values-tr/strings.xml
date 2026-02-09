@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[Eightie’ye hoş geldin!]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[Rastgele karşılaşmalar ve heyecan verici sürprizlerle şansını dene.]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[Merhaba!]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[Heyecan Verici\nKarşılaşmalara Hazır mısın?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[Binlerce kişi burada gerçek bağlantılar buldu. Sıradaki sen ol!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[Hazırım!]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[Birbirimizi kaybetmek üzereyiz! Bu profili geri yüklemek için %s günün var.]]></string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[Maligayang pagdating sa Eightie!]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[Sumugal sa mga random na tagpo at nakakatuwang sorpresa.]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[Hello!]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[Handa na ba para sa\nMga Kapana-panabik na Tagpo?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[Libo-libo na ang nakahanap ng tunay na koneksyon dito. Ikaw na ang susunod!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[Handa na ako!]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[Mawawala na tayo sa isa’t isa! May %s araw ka para ibalik ang profile na ito.]]></string>
+</resources>

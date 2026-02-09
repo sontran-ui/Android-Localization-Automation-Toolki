@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[Bine ai venit la Eightie!]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[Încearcă întâlniri aleatorii și surprize captivante.]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[Salut!]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[Ești gata pentru\nÎntâlniri captivante?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[Mii de oameni au găsit conexiuni reale aici. Fii următorul!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[Sunt gata!]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[Suntem pe cale să ne pierdem! Ai %s zile să restaurezi acest profil.]]></string>
+</resources>

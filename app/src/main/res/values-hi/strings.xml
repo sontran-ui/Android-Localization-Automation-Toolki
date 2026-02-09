@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[Eightie में आपका स्वागत है!]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[यादृच्छिक मुलाक़ातों और रोमांचक सरप्राइज़ के साथ किस्मत आज़माएँ।]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[नमस्ते!]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[क्या आप तैयार हैं\nरोमांचक मुलाक़ातों के लिए?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[हज़ारों लोगों ने यहाँ अपने जैसे लोगों से जुड़ाव पाया है। अगला आप हो सकते हैं!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[मैं तैयार हूँ!]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[हम एक-दूसरे से दूर होने वाले हैं! इस प्रोफ़ाइल को बहाल करने के लिए आपके पास %s दिन हैं।]]></string>
+</resources>

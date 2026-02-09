@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="onboarding_intro_title_one"><![CDATA[Selamat datang ke Eightie!]]></string>
+    <string name="onboarding_intro_desc_one"><![CDATA[Cuba nasib dengan pertemuan rawak dan kejutan menarik.]]></string>
+    <string name="onboarding_intro_button_one"><![CDATA[Hai!]]></string>
+    <string name="onboarding_intro_title_two"><![CDATA[Bersedia untuk\nPertemuan Menarik?]]></string>
+    <string name="onboarding_intro_desc_two"><![CDATA[Ribuan orang telah menemui hubungan bermakna di sini. Jadilah yang seterusnya!]]></string>
+    <string name="onboarding_intro_button_two"><![CDATA[Saya bersedia!]]></string>
+    <string name="msg_des_delete_acc"><![CDATA[Kita hampir kehilangan satu sama lain! Anda ada %s hari untuk memulihkan profil ini.]]></string>
+</resources>
