@@ -87,7 +87,6 @@ tasks.register("syncStrings") {
         val remoteData: Map<String, Map<String, String>> =
             gson.fromJson(json, type)
 
-        // Detect base locale dynamically
         val baseLocale = remoteData.keys.firstOrNull {
             it.equals("en-US", true) ||
                     it.equals("en", true) ||
@@ -102,7 +101,6 @@ tasks.register("syncStrings") {
 
         remoteData.forEach { (localeFull, remoteStringsRaw) ->
 
-            // localeFull ví dụ: en-US, vi-VN, de-DE
             val languageCode = localeFull.substringBefore("-").lowercase()
 
             val folderName =
@@ -116,27 +114,25 @@ tasks.register("syncStrings") {
 
             val file = File(resDir, "strings.xml")
 
-            val existingContent =
-                if (file.exists()) file.readText()
-                else "<resources>\n</resources>"
+            println("Overwriting locale: $localeFull → $folderName")
 
-            var content = existingContent
-
-            println("Syncing locale: $localeFull → $folderName")
+            val builder = StringBuilder()
+            builder.appendLine("""<?xml version="1.0" encoding="utf-8"?>""")
+            builder.appendLine("<resources>")
 
             remoteStringsRaw
-                .filter { it.key.isNotBlank() }
                 .forEach { (key, rawValue) ->
 
-                    val remoteValue = normalize(rawValue)
+                    if (key.isBlank()) return@forEach
+
+                    val value = normalize(rawValue)
 
                     validateKey(key)
-                    validateXml(remoteValue)
+                    validateXml(value)
 
-                    // placeholder check so với English
                     val baseValue = baseEnglish[key] ?: ""
                     val basePH = extractPlaceholders(baseValue)
-                    val currentPH = extractPlaceholders(remoteValue)
+                    val currentPH = extractPlaceholders(value)
 
                     if (basePH != currentPH) {
                         throw GradleException(
@@ -144,52 +140,23 @@ tasks.register("syncStrings") {
                             Placeholder mismatch detected!
                             Locale: $localeFull
                             Key: $key
-                            Base (en-US): $basePH
+                            Base: $basePH
                             Current: $currentPH
                             """.trimIndent()
                         )
                     }
 
-                    val stringRegex =
-                        Regex("""<string\s+name="$key"[^>]*>([\s\S]*?)</string>""")
-
-                    if (stringRegex.containsMatchIn(content)) {
-
-                        val match = stringRegex.find(content)!!
-                        val oldRaw = match.groupValues[1]
-                        val oldValue = normalize(oldRaw)
-
-                        if (oldValue != remoteValue) {
-
-                            val newNode =
-                                """    <string name="$key">${escapeXml(remoteValue)}</string>"""
-
-                            content =
-                                content.replace(match.value, newNode)
-
-                            println("Updated: $folderName/$key")
-                        }
-
-                    } else {
-
-                        val newNode =
-                            """    <string name="$key">${escapeXml(remoteValue)}</string>
-"""
-
-                        content =
-                            content.replace(
-                                "</resources>",
-                                "$newNode</resources>"
-                            )
-
-                        println("Added: $folderName/$key")
-                    }
+                    builder.appendLine(
+                        """    <string name="$key">${escapeXml(value)}</string>"""
+                    )
                 }
 
-            file.writeText(content)
+            builder.appendLine("</resources>")
+
+            file.writeText(builder.toString())
         }
 
-        println("✔ Sync completed successfully.")
+        println("✔ Full overwrite completed successfully.")
     }
 }
 
