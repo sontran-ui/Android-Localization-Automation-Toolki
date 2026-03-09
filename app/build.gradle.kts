@@ -79,7 +79,13 @@ tasks.register("syncStrings") {
         val apiUrl =
             "https://script.google.com/macros/s/AKfycbxZVroQCWVO_pFNajzH0h-a7SLwb0l6_WlmGFBPLqn0MkcuPF9-d8zqtPN-Dar0X_fC/exec"
 
-        println("Fetching remote strings...")
+        val mode = project.findProperty("mode")?.toString()?.lowercase() ?: "overwrite"
+        val keyParam = project.findProperty("keys")?.toString()
+        val selectedKeys = keyParam?.split(",")?.map { it.trim() }?.toSet()
+
+        println("Mode: $mode")
+        if (selectedKeys != null) println("Selected keys: $selectedKeys")
+
         val json = URL(apiUrl).readText()
 
         val gson = Gson()
@@ -88,75 +94,127 @@ tasks.register("syncStrings") {
             gson.fromJson(json, type)
 
         val baseLocale = remoteData.keys.firstOrNull {
-            it.equals("en-US", true) ||
-                    it.equals("en", true) ||
-                    it.contains("en", true)
+            it.contains("en", true)
         } ?: throw GradleException(
             "No English base locale found. Available: ${remoteData.keys}"
         )
-
-        println("Base locale detected: $baseLocale")
 
         val baseEnglish = remoteData[baseLocale]!!
 
         remoteData.forEach { (localeFull, remoteStringsRaw) ->
 
             val languageCode = localeFull.substringBefore("-").lowercase()
-
             val folderName =
                 if (languageCode == "en") "values"
                 else "values-$languageCode"
 
-            val resDir =
-                File(project.projectDir, "src/main/res/$folderName")
-
+            val resDir = File(project.projectDir, "src/main/res/$folderName")
             resDir.mkdirs()
 
             val file = File(resDir, "strings.xml")
 
-            println("Overwriting locale: $localeFull → $folderName")
+            if (!file.exists()) {
+                file.parentFile.mkdirs()
+                file.writeText(
+                    """<?xml version="1.0" encoding="utf-8"?>
+<resources>
+</resources>"""
+                )
+            }
+
+            val existingContent = file.readText()
+
+            val existingKeys = Regex("""name="([^"]+)"""")
+                .findAll(existingContent)
+                .map { it.groupValues[1] }
+                .toSet()
 
             val builder = StringBuilder()
-            builder.appendLine("""<?xml version="1.0" encoding="utf-8"?>""")
-            builder.appendLine("<resources>")
 
-            remoteStringsRaw
-                .forEach { (key, rawValue) ->
+            if (mode == "overwrite") {
+                builder.appendLine("""<?xml version="1.0" encoding="utf-8"?>""")
+                builder.appendLine("<resources>")
+            }
 
-                    if (key.isBlank()) return@forEach
+            remoteStringsRaw.forEach { (key, rawValue) ->
 
-                    val value = normalize(rawValue)
+                if (key.isBlank()) return@forEach
+                if (selectedKeys != null && key !in selectedKeys) return@forEach
 
-                    validateKey(key)
-                    validateXml(value)
+                val value = normalize(rawValue)
 
-                    val baseValue = baseEnglish[key] ?: ""
-                    val basePH = extractPlaceholders(baseValue)
-                    val currentPH = extractPlaceholders(value)
+                validateKey(key)
+                validateXml(value)
 
-                    if (basePH != currentPH) {
-                        throw GradleException(
-                            """
-                            Placeholder mismatch detected!
-                            Locale: $localeFull
-                            Key: $key
-                            Base: $basePH
-                            Current: $currentPH
-                            """.trimIndent()
-                        )
-                    }
+                val baseValue = baseEnglish[key] ?: ""
+                val basePH = extractPlaceholders(baseValue)
+                val currentPH = extractPlaceholders(value)
 
-                    builder.appendLine(
-                        """    <string name="$key">${escapeXml(value)}</string>"""
-                    )
+                if (basePH != currentPH) {
+                    throw GradleException("Placeholder mismatch: $key ($localeFull)")
                 }
 
-            builder.appendLine("</resources>")
+                val newNode =
+                    """    <string name="$key">${escapeXml(value)}</string>"""
 
-            file.writeText(builder.toString())
+                when (mode) {
+
+                    "overwrite" -> {
+                        builder.appendLine(newNode)
+                    }
+
+                    "append" -> {
+                        if (key !in existingKeys) {
+                            builder.appendLine(newNode)
+                        }
+                    }
+
+                    "merge" -> {
+                        if (key in existingKeys) {
+                            val regex = Regex("""<string\s+name="$key"[^>]*>.*?</string>""")
+                            val updated = regex.replace(existingContent, newNode)
+                            file.writeText(updated)
+                        } else {
+                            builder.appendLine(newNode)
+                        }
+                    }
+
+                    else -> throw GradleException("Invalid mode: $mode")
+                }
+            }
+
+            when (mode) {
+
+                "overwrite" -> {
+                    builder.appendLine("</resources>")
+                    file.writeText(builder.toString())
+                }
+
+                "append" -> {
+                    val updated =
+                        existingContent.replace(
+                            "</resources>",
+                            builder.toString() + "\n</resources>"
+                        )
+                    file.writeText(updated)
+                }
+
+                "merge" -> {
+                    if (builder.isNotEmpty()) {
+                        val updated =
+                            file.readText().replace(
+                                "</resources>",
+                                builder.toString() + "\n</resources>"
+                            )
+                        file.writeText(updated)
+                    }
+                }
+            }
+
+            println("Synced locale: $localeFull → $folderName")
         }
 
-        println("✔ Full overwrite completed successfully.")
+        println("✔ Sync completed successfully.")
     }
 }
 
